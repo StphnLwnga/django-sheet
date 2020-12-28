@@ -269,4 +269,16 @@ Django apps can be plugged into other apps and projects.
 
     register.filter('my_filter_name', my_func)
     ```
+- Better yet with decorators: 👇️👇️👇️👇️
+    ```python
+    from django import template
+    # Register templates
+    register = template.Library()
+
+    @register(name='filter_name')
+    def my_func(value, arg):
+        """
+        Doc string explaining function in relation to "arg" & "value"
+        """
+        # Do something to "arg"
 ## [Back To Top](#Content)
