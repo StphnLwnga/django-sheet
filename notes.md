@@ -1,7 +1,5 @@
 # Django
-Hierarchy
-
-```Project -> App(s) + configs```
+[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs),
 
 Django apps can be plugged into other apps and projects.
 
@@ -67,7 +65,7 @@ Django apps can be plugged into other apps and projects.
 - The `render` function's 2nd argument in `views.py` is the template file you want the content to appear in.
 - Reference the `block` in `base.html` or whichever template of interest
 
-## Static files:
+## Static-files
 - Create `static` directory in project root
 - Add path to `settings.py`
 - Add `STATIC_URL` variable
@@ -118,7 +116,7 @@ Django apps can be plugged into other apps and projects.
     ```
 - Populate the models and import them into the `views.py` so they can be displayed in the templates
 
-## Population script using Faker
+## Population-script
 - Populate db with fake data based on the defined models
     ```shell
     # within the activated environment
@@ -236,7 +234,7 @@ Django apps can be plugged into other apps and projects.
     ```
 - Add the above view to the app's `urls.py` file.
 
-## Relative URLs with templates
+## Relative-URLs
 - Syntax
     ```html
     <!-- url_name as defined in the app_name's urls.py file -->
