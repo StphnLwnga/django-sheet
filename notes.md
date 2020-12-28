@@ -251,9 +251,9 @@ Django apps can be plugged into other apps and projects.
 ## Template-filters
 - Transform values of variables & tag args. Syntax:
     ```python
-    {{ variable | filter }}
+    {{ variable | filter_name }}
     # or
-    {{ variable | filter: "parameter" }}
+    {{ variable | filter_name: "parameter" }}
     ```
 - Custom template filters inside `app/templatetags/mytemplates.py` file. (`templatetags` folder has an `__init__.py` file):
     ```python
