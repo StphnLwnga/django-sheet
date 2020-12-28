@@ -1,7 +1,7 @@
 # Django
 
 ## Content
-[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs),
+[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters)
 
 Django apps can be plugged into other apps and projects.
 
@@ -241,8 +241,32 @@ Django apps can be plugged into other apps and projects.
     ```html
     <!-- url_name as defined in the app_name's urls.py file -->
     <a href="{% url 'url_name' %}">
-        Content
+        <!-- Content -->
+    </a>
+    <!-- OR app e.g admin-->
+    <a href="{% url 'app_name:url_name' %}">
+        <!-- Content -->
     </a>
     ```
+## Template-filters
+- Transform values of variables & tag args. Syntax:
+    ```python
+    {{ variable | filter }}
+    # or
+    {{ variable | filter: "parameter" }}
+    ```
+- Custom template filters inside `app/templatetags/mytemplates.py` file. (`templatetags` folder has an `__init__.py` file):
+    ```python
+    from django import template
+    # Register templates
+    register = template.Library()
 
-# [Back To Top](#Content)
+    def my_func(value, arg):
+        """
+        Doc string explaining function in relation to "arg" & "value"
+        """
+        # Do something to "arg"
+
+    register.filter('my_filter_name', my_func)
+    ```
+## [Back To Top](#Content)
