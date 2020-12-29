@@ -307,5 +307,13 @@ Django apps can be plugged into other apps and projects.
 - Import the built in `User` object
 - Features: Username, Email, Password, First Name, Surname. 
 - Attributes: is_active, is_staff, is_superuser etc. Can have custom ones.
+    ```python
+    from django.contrib.auth.models import User
+    #...
+    class UserInfo(model.Models):
+        # create relationship, never inherit
+        user = models.OneToOneField(User)
+        # ....
+    ```
 
 ## [Back To Top](#Content)
