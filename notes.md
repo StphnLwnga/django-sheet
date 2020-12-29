@@ -1,7 +1,7 @@
 # Django
 
 ## Content
-[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters), [Hashing Passwords](#Password)
+[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters), [Auth0 & AuthZ](#Auth0-AuthZ)
 
 Django apps can be plugged into other apps and projects.
 
@@ -287,7 +287,7 @@ Django apps can be plugged into other apps and projects.
         """
         # Do something to "arg"
 
-## Passwords
+## Auth0-AuthZ
 - Password hashing using bcrypt or Argon 2
     ```shell
     conda install -c conda-forge bcrypt
@@ -301,7 +301,8 @@ Django apps can be plugged into other apps and projects.
         'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
         'django.contrib.auth.hashers.BCryptPasswordHasher',
         'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher', # Default, in-built hasher
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     ]
     ```
+
 ## [Back To Top](#Content)
