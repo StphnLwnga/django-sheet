@@ -1,7 +1,7 @@
 # Django
 
 ## Content
-[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters)
+[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters), [Auth0 & AuthZ](#Authorization)
 
 Django apps can be plugged into other apps and projects.
 
@@ -48,7 +48,12 @@ Django apps can be plugged into other apps and projects.
     python manage.py runserver
     ```
 - Change `DEBUG` setting in `settings.py` to either `True` or `False`. Turn off in production.
-
+- Install packages from `requirements.txt` from another project / repo
+    ```bash
+    # Ensure conda env exists e.g my_conda_env
+    # If not create it: conda create -y --name my_conda_env
+    conda install --force-reinstall -y --name my_conda_env -c conda-forge --file requirements.txt
+    ```
 ## Templates:
 - Create templates dirctory in the project root, then subdirectories for each app inside it.
 - Edit `DIR` key of the `templates` dictionary inside of the project's `settings.py`
@@ -281,4 +286,13 @@ Django apps can be plugged into other apps and projects.
         Doc string explaining function in relation to "arg" & "value"
         """
         # Do something to "arg"
+
+## Authorization
+- Password hashing using bcrypt or Argon 2
+    ```shell
+    conda install -c conda-forge bcrypt
+    # Or
+    conda install -c conda-forge argon2-cffi
+    ```
+- Add them to `INSTALLED_APPS` in `settings.py`
 ## [Back To Top](#Content)
