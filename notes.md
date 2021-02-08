@@ -79,6 +79,7 @@ Django apps can be plugged into other apps and projects.
 	```bash
 	git rm -rf --cached --ignore-unmatch .env
 	```
+- [List of useful `.gitignore` files](https://github.com/github/gitignore)
 
 ## Templates:
 - Create templates dirctory in the project root, then subdirectories for each app inside it.
