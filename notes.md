@@ -1,7 +1,7 @@
 # Django
 
 ## Content
-[Start](#Start), [Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters), [Auth0 & AuthZ](#Auth0-AuthZ)
+[Start](#Start), [Errors with Imports](#Imports),  [Environmental variable](#Env_variables),[Templates](#Templates), [Static files](#Static-files), [Models](#Models), [Population scripts using Faker]( #Population-script), [Databases](#Databases), [Forms](#Forms), [Relative URLs](#Relative-URLs), [Template & Custom Filters](#Template-filters), [Auth0 & AuthZ](#Auth0-AuthZ)
 
 Django apps can be plugged into other apps and projects.
 
@@ -54,6 +54,28 @@ Django apps can be plugged into other apps and projects.
     # If not create it: conda create -y --name my_conda_env
     conda install --force-reinstall -y --name my_conda_env -c conda-forge --file requirements.txt
     ```
+
+## Imports
+- Locate the python path in your virtual environment (with the virtual env activated)
+	```bash
+	which python
+	```
+- `ctrl + shift + p` in VS code.
+- Launch workspace settings. In the `settings.json` file add the following line
+	```JSON
+	{
+		"python.pythonPath": "/result/of/first/command",
+	}
+	```
+
+## Env_variables
+- Create `.env` file in the project's root folder
+- Format:
+	```text
+	export VAR_NAME='Value'
+	```
+- Use `environ` package. `conda install -c conda-forge django-environ`
+
 ## Templates:
 - Create templates dirctory in the project root, then subdirectories for each app inside it.
 - Edit `DIR` key of the `templates` dictionary inside of the project's `settings.py`
@@ -314,6 +336,38 @@ Django apps can be plugged into other apps and projects.
         # create relationship, never inherit
         user = models.OneToOneField(User)
         # ....
+    ```
+- Register the model in `admin.py`
+    ```python
+    from .models import MyUserModel
+    #...
+    admin.site.register(MyUserModel)
+    ```
+- Inside `forms.py`
+    ```python
+    from django import forms
+    from django.contrib.auth.model import User
+    from .models import MyUserModel
+
+    class MyUserForm(forms.ModelForm):
+        # Add password field
+        password = forms.CharField(widget=forms.PasswordInput())
+
+        class Meta():
+            model = User
+            # Add other fields from django's User model. See docs
+            # username, first_name, last_name, email
+            fields = (..., 'password')
+            #...
+
+    class UserModelForm(forms.ModelForm):
+        # add extrafields here, 3rd party package fields e.g cloudinary
+        new_field_1 = forms.#....
+        new_field_2 = forms.#...
+
+        class Meta():
+            model = MyUserModel
+            fields = ('new_field_1', 'new_field_2',)
     ```
 
 ## [Back To Top](#Content)
