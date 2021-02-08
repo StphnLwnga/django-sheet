@@ -75,6 +75,10 @@ Django apps can be plugged into other apps and projects.
 	export VAR_NAME='Value'
 	```
 - Use `environ` package. `conda install -c conda-forge django-environ`
+- Ensure `.env` is included in the `.gitignore` file. If not and the file has been pushed to the repo, remove it from git history using:
+	```bash
+	git rm -rf --cached --ignore-unmatch .env
+	```
 
 ## Templates:
 - Create templates dirctory in the project root, then subdirectories for each app inside it.
